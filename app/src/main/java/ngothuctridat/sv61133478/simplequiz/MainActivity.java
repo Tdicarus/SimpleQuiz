@@ -2,6 +2,7 @@ package ngothuctridat.sv61133478.simplequiz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button falseButton;
     private ImageButton forwardButton;
     private ImageButton backwardButton;
+    private int currentQuestionIndex = 0;
 
 
     private Question[] questionBank = new Question[]
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     new Question(R.string.question_8, true),
                     new Question(R.string.question_9, true),
                     new Question(R.string.question_10, false)
-            }
+            };
 
 
 
@@ -45,10 +47,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         trueButton.setOnClickListener(this);
         falseButton.setOnClickListener(this);
+        forwardButton.setOnClickListener(this);
+        backwardButton.setOnClickListener(this);
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v)
+    {
         switch (v.getId())
         {
             case R.id.yes:
@@ -58,7 +63,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.no:
                 Toast.makeText(MainActivity.this,"False",Toast.LENGTH_SHORT).show();
                 break;
+
+            case R.id.forward:
+                currentQuestionIndex = (currentQuestionIndex + 1 ) % questionBank.length;
+                updateQuestion();
+                break;
+
+            case R.id.backward:
+                if (currentQuestionIndex >0 )
+                {
+                    currentQuestionIndex = (currentQuestionIndex - 1) % questionBank.length;
+                    updateQuestion();
+                    break;
+                }
         }
 
     }
+
+    private void updateQuestion()
+    {
+        Log.d("current","onclick" + currentQuestionIndex);
+        questionTextView.setText(questionBank[currentQuestionIndex].getAnswerResId());
+    }
+
 }

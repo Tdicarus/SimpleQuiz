@@ -12,4 +12,6 @@
     <string name="question_8">Horse is faster than turtle</string> //True
     <string name="question_9">You are beautiful</string> //True
     <string name="question_10">You are poor</string> //False
+    <string name="correct_answer">That is correct</string>
+    <string name="wrong_answer">That is wrong</string>
 </resources>
