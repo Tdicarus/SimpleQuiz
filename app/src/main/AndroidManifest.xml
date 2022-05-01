@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SimpleQuiz">
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivity" android:screenOrientation="locked"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

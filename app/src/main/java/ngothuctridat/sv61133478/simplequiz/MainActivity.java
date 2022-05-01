@@ -33,13 +33,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             };
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        questionTextView =(TextView) findViewById(R.id.quest);
+        questionTextView = (TextView) findViewById(R.id.quest);
         trueButton = (Button) findViewById(R.id.yes);
         falseButton = (Button) findViewById(R.id.no);
         forwardButton = (ImageButton) findViewById(R.id.forward);
@@ -52,26 +51,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View v)
-    {
-        switch (v.getId())
-        {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.yes:
-                Toast.makeText(MainActivity.this,"True",Toast.LENGTH_SHORT).show();
+                checkAnswer(true);
                 break;
 
             case R.id.no:
-                Toast.makeText(MainActivity.this,"False",Toast.LENGTH_SHORT).show();
+                checkAnswer(false);
                 break;
 
             case R.id.forward:
-                currentQuestionIndex = (currentQuestionIndex + 1 ) % questionBank.length;
+                currentQuestionIndex = (currentQuestionIndex + 1) % questionBank.length;
                 updateQuestion();
                 break;
 
             case R.id.backward:
-                if (currentQuestionIndex >0 )
-                {
+                if (currentQuestionIndex > 0) {
                     currentQuestionIndex = (currentQuestionIndex - 1) % questionBank.length;
                     updateQuestion();
                     break;
@@ -80,10 +76,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private void updateQuestion()
-    {
-        Log.d("current","onclick" + currentQuestionIndex);
+    private void updateQuestion() {
+        Log.d("current", "onclick" + currentQuestionIndex);
         questionTextView.setText(questionBank[currentQuestionIndex].getAnswerResId());
     }
 
+    private void checkAnswer(boolean Choose) {
+        boolean answerIsTrue = questionBank[currentQuestionIndex].isAnswerTrue();
+        int toastMessageId = 0;
+        if (Choose == answerIsTrue) {
+            toastMessageId = R.string.correct_answer;
+        }
+        else
+        {
+            toastMessageId = R.string.wrong_answer;
+        }
+        Toast.makeText(MainActivity.this, toastMessageId, Toast.LENGTH_SHORT).show();
+    }
 }
