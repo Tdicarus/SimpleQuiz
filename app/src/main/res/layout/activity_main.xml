@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@drawable/bg"
@@ -8,13 +7,47 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="216dp"
+        android:layout_gravity="center"
+        android:src="@drawable/quiz1" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:hint="question"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+        />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5">
+        
+    </Button>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
 
 </LinearLayout>
