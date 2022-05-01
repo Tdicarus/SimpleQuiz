@@ -2,5 +2,14 @@
     <string name="app_name">SimpleQuiz</string>
     <string name="previous_text">previous</string>
     <string name="next_text">next</string>
-    <string name="background_image">background</string>
+    <string name="question_1">Spider has 6 legs</string> //False - 8
+    <string name="question_2">Human has 4 lungs</string> //False - 2
+    <string name="question_3">Cat is bigger than shark</string> //False
+    <string name="question_4">Maserati is a car brand</string> //True
+    <string name="question_5">Cam shaft is important in motorbike</string> //True
+    <string name="question_6">Bonjour is Hello in French</string> //True
+    <string name="question_7">Paper made from wood</string> //True
+    <string name="question_8">Horse is faster than turtle</string> //True
+    <string name="question_9">You are beautiful</string> //True
+    <string name="question_10">You are poor</string> //False
 </resources>
